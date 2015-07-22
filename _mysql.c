@@ -433,6 +433,7 @@ _mysql_ResultObject_Initialize(
 	if (!result) {
 		if (mysql_errno(&(conn->connection))) {
 		    _mysql_Exception(conn);
+		    Py_DECREF(conv);
 		    return -1;
 		}
 		self->converter = PyTuple_New(0);
